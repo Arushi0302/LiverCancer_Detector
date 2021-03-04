@@ -57,9 +57,14 @@ def api_pred():
             to_predict_list = list(map(float, list(to_predict_dict.values())))
             pred = predict(to_predict_list, to_predict_dict)
     except:
-        return -1, 200
+        return "-1", 200
 
-    return pred, 200
+    if pred == -1:
+        return "-1", 200
+    elif pred == 0:
+        return "0", 200
+    else:
+        return "1", 200
 
 if __name__ == '__main__':
 	app.run(debug = True)
