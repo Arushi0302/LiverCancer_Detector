@@ -49,7 +49,7 @@ def api_pred():
 
     try:
         if request.method == 'POST':
-            to_predict_dict = request.get_json()
+            to_predict_dict = request.form.to_dict()
             to_predict_list = list(map(float, list(to_predict_dict.values())))
             pred = predict(to_predict_list, to_predict_dict)
         else:
